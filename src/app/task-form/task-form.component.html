@@ -1,0 +1,57 @@
+<div class="form-container">
+  <sp-at-logo type="BDBFULL"></sp-at-logo>
+  <!-- Título fuera de la card, alineado a la izquierda -->
+  <h2 class="page-title">{{ isEditMode ? 'Actualizar tarea' : 'Crear nueva tarea' }}</h2>
+
+  <div class="card">
+    <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <sp-at-input
+          #tituloInput
+          label="Título"
+          placeholder="Ingresa el título"
+          type="TEXT"
+          status="ENABLED"
+          required="true"
+          view-mode
+          (atInputChanged)="onTituloChanged($event)">
+        </sp-at-input>
+        <div class="error-message" *ngIf="taskForm.controls['titulo'].invalid && taskForm.controls['titulo'].touched">
+          El título es requerido.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <sp-at-text-area
+          #descripcionTextArea
+          label="Descripción"
+          placeholder="Ingresa la descripción"
+          status="ENABLED"
+          height="40px"
+          (atTextAreaChanged)="onDescripcionChanged($event)">
+        </sp-at-text-area>
+        <div class="error-message" *ngIf="taskForm.controls['descripcion'].invalid && taskForm.controls['descripcion'].touched">
+          La descripción es requerida.
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button class="sp-at-btn sp-at-btn--secondary sp-at-btn--lg" (click)="navegarALista()">Volver</button>
+        <button class="sp-at-btn sp-at-btn--primary sp-at-btn--lg" type="submit" [disabled]="taskForm.invalid">
+          {{ isEditMode ? 'Actualizar' : 'Crear' }} <span>›</span>
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <sp-ml-footer desc="Laura Valentina Hidalgo. 2025 © Banco de Bogotá."></sp-ml-footer>
+
+  <sp-ml-modal #modal
+               is-close
+               icon="success"
+               title-modal="¡Muy bien!"
+               sub-title="Tarea {{ isEditMode ? 'actualizada' : 'creada' }} exitosamente"
+               options-buttons='[{"id":"0","value":"Continuar"}]'
+               (buttonAlertClicked)="handleModalButtonClick($event)">
+  </sp-ml-modal>
+</div>

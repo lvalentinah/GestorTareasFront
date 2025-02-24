@@ -1,0 +1,42 @@
+<div class="task-list-container">
+  <sp-ml-header back="false" close="false"></sp-ml-header>
+
+  <h2 class="title">Gestor de tareas</h2>
+
+  <div class="create-task-button">
+    <button class="sp-at-btn sp-at-btn--primary sp-at-btn--lg" (click)="navegarACrearTarea()">
+      Nueva tarea <span>›</span>
+    </button>
+  </div>
+
+  <table class="task-table">
+    <thead>
+      <tr>
+        <th>Tarea</th>
+        <th>Descripción</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks">
+        <td>{{ task.titulo }}</td>
+        <td>{{ task.descripcion }}</td>
+        <td>
+          <span class="ico-delete" (click)="task.id && confirmDeleteTask(task.id)"> </span>
+          <span class="ico-write-edit" (click)="task.id && navegarAEditarTarea(task.id)"> </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <sp-ml-footer desc="Laura Valentina Hidalgo. 2025 © Banco de Bogotá."></sp-ml-footer>
+
+  <sp-ml-modal #modal
+               is-close
+               icon="information"
+               title-modal="Confirmación"
+               sub-title="¿Está seguro que desea eliminar la tarea?"
+               options-buttons='[{"id":"1","value":"Aceptar"},{"id":"0","value":"Cancelar"}]'
+               (buttonAlertClicked)="handleModalButtonClick($event)">
+  </sp-ml-modal>
+</div>

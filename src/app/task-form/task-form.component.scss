@@ -1,0 +1,86 @@
+/* Fondo global */
+.form-container {
+  background-color: #F6FAFF;
+  min-height: 100vh;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* Título de la página, ahora fuera del card y alineado a la izquierda */
+.page-title {
+  text-align: left;
+  color: #333;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 2rem 0 1rem 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Card para el formulario */
+.card {
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+/* Grupos de formulario */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+/* Mensajes de error */
+.error-message {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* Acciones del formulario */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* Botones personalizados */
+.btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-primary {
+  background-color: #0043A9;
+  color: #fff;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #003a86;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.btn-secondary:hover {
+  background-color: #d4d4d4;
+}
+
+/* Estilos para componentes sp-at (utilizando ::ng-deep para afectar estilos internos) */
+::ng-deep sp-at-input,
+::ng-deep sp-at-text-area {
+  width: 100%;
+  --at-input-border-color: #ced4da;
+  --at-input-border-radius: 4px;
+  --at-input-padding: 0.75rem;
+  --at-input-font-size: 1rem;
+}

@@ -1,0 +1,148 @@
+.task-list-container {
+  padding: 2rem;
+  background-color: #F6FAFF;
+  font-family: 'Roboto', sans-serif;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.title {
+  margin-top: 2.5rem;
+  font-family: roboto-medium;
+  font-weight: 500;
+  text-align: left;
+  color: #000000;
+}
+/* Contenedor principal centrado */
+.form-image-container {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center;     /* Centra verticalmente */
+  background-color: #F6FAFF;
+  padding: 2rem;
+  box-sizing: border-box;
+  min-height: 100vh;       /* Ocupa al menos toda la altura de la ventana */
+}
+
+/* Columna del formulario */
+.form-column {
+  width: 100%;
+  max-width: 600px;  /* Limita el ancho del formulario */
+}
+
+.create-task-button {
+  text-align: right;
+  margin-bottom: 1rem;
+  margin-left: 850px;
+}
+
+.sp-at-btn {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sp-at-btn:hover {
+  background-color: #003a86;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.task-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.task-table th,
+.task-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.task-table th {
+  background-color: #0043A9;
+  color: #fff;
+  text-align: left;
+  font-size: 1.1rem;
+}
+
+.task-table tbody tr:hover {
+  background-color: #e8f2ff;
+  cursor: pointer;
+}
+
+.task-table th:first-child,
+.task-table td:first-child {
+  width: 150px;
+}
+
+.task-table th:last-child,
+.task-table td:last-child {
+  width: 100px;
+  text-align: center;
+}
+
+.ico-write-edit {
+  cursor: pointer;
+  color: #003a86;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.ico-delete {
+  cursor: pointer;
+  color: #f44336;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.ico-delete:hover {
+  color: #d32f2f;
+}
+
+/* Remover el borde inferior de la última fila */
+.task-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Ejemplo de media query para diseño responsivo */
+@media (max-width: 768px) {
+  .task-table, .task-table thead, .task-table tbody, .task-table th, .task-table td, .task-table tr {
+    display: block;
+  }
+
+  .task-table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .task-table tr {
+    border: 1px solid #ccc;
+    margin-bottom: 1rem;
+  }
+
+  .task-table td {
+    border: none;
+    position: relative;
+    padding-left: 50%;
+    text-align: right;
+  }
+
+  .task-table td:before {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 45%;
+    padding-right: 1rem;
+    white-space: nowrap;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .task-table td:nth-of-type(1):before { content: "Tarea"; }
+  .task-table td:nth-of-type(2):before { content: "Descripción"; }
+  .task-table td:nth-of-type(3):before { content: "Acciones"; }
+}
